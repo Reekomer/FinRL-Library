@@ -77,7 +77,6 @@ class DRLAgent:
         actions_memory = []
         actions_memory = []
         for i in range(len(test_data.index.unique())):
-        for i in range(len(test_data.index.unique())):
             action, _states = model.predict(test_obs)
             action, _states = model.predict(test_obs)
             account_memory = test_env.env_method(method_name="save_asset_memory")
