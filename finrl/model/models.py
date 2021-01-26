@@ -70,27 +70,16 @@ class DRLAgent:
     @staticmethod
     def DRL_prediction(model, test_data, test_env, test_obs):
         """make a prediction"""
-        """make a prediction"""
         start = time.time()
         account_memory = []
-        account_memory = []
-        actions_memory = []
         actions_memory = []
         for i in range(len(test_data.index.unique())):
             action, _states = model.predict(test_obs)
-            action, _states = model.predict(test_obs)
-            account_memory = test_env.env_method(method_name="save_asset_memory")
-            actions_memory = test_env.env_method(method_name="save_action_memory")
-            test_obs, rewards, dones, info = test_env.step(action)
             test_obs, rewards, dones, info = test_env.step(action)
             if i == (len(test_data.index.unique()) - 2):
-            if dones[0]:
                 account_memory = test_env.env_method(method_name="save_asset_memory")
-                print("hit end!")
                 actions_memory = test_env.env_method(method_name="save_action_memory")
-
         end = time.time()
-                break
         return account_memory[0], actions_memory[0]
 
     def __init__(self, env):
